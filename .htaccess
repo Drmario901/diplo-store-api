@@ -1,0 +1,17 @@
+RewriteEngine On
+RewriteBase /diplo-store-api/
+
+RewriteRule ^/?$ index.php [L]
+
+#USER ROUTES
+RewriteRule ^login?$ php/user/login.php [L] #login route
+RewriteRule ^register?$ php/user/register.php [L] #register route
+RewriteRule ^user-data?$ php/user/userData.php [L] #user data route
+
+#ADMIN ROUTES
+RewriteRule ^api/validate?$ php/admin/validateSession.php [L] #protect adminroute
+RewriteRule ^api/users?$ php/admin/users.php [L] #users data route
+RewriteRule ^api/role?$ php/admin/changeRole.php [L] #change role route
+RewriteRule ^api/delete-user?$ php/admin/deleteUser.php [L] #role permissions route
+
+
