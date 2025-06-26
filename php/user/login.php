@@ -52,7 +52,7 @@ $result = mysqli_query($conexion, $query);
 
 if (!$result || mysqli_num_rows($result) === 0) {
     http_response_code(401);
-    echo json_encode(["message" => "Invalid credentials"]);
+    echo json_encode(["message" => "Credenciales invalidas"]);
     exit();
 }
 
@@ -60,7 +60,7 @@ $user = mysqli_fetch_assoc($result);
 
 if (!password_verify($password, $user['password'])) {
     http_response_code(401);
-    echo json_encode(["message" => "Invalid credentials"]);
+    echo json_encode(["message" => "Credenciales invalidas"]);
     exit();
 }
 
