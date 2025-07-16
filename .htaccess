@@ -1,0 +1,26 @@
+RewriteEngine On
+RewriteBase /diplo-store-api/
+
+RewriteRule ^/?$ index.php [L]
+
+#USER ROUTES
+RewriteRule ^login?$ php/user/login.php [L] #login route
+RewriteRule ^register?$ php/user/register.php [L] #register route
+RewriteRule ^user-data?$ php/user/userData.php [L] #user data route
+
+#STRIPE ROUTE
+RewriteRule ^api/gateway/checkout?$ php/gateway/checkout.php [L]
+RewriteRule ^api/gateway/orders?$ php/gateway/fetchPurchases.php [L]
+RewriteRule ^api/gateway/my-purchases?$ php/gateway/userPurchasesData.php [L]
+RewriteRule ^api/gateway/invoice?$ php/gateway/invoice.php [L]
+
+#ADMIN ROUTES
+RewriteRule ^api/dashboard?$ php/admin/getDashboardData.php [L] #dashboard data
+RewriteRule ^api/validate?$ php/admin/validateSession.php [L] #protect adminroute
+RewriteRule ^api/users?$ php/admin/users.php [L] #users data route
+RewriteRule ^api/role?$ php/admin/changeRole.php [L] #change role route
+RewriteRule ^api/delete-user?$ php/admin/deleteUser.php [L] #role permissions route
+RewriteRule ^api/upload-product?$ php/products/productsUpload.php [L] #products management route
+RewriteRule ^api/get-products?$ php/products/getProducts.php [L] #products get route
+
+
